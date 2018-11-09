@@ -15,21 +15,21 @@ namespace VendasWebMvc.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Sobre()
         {
             ViewData["Message"] = "Your application description page.";
 
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Contato()
         {
             ViewData["Message"] = "Your contact page.";
 
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Privacidade()
         {
             return View();
         }
