@@ -1,0 +1,23 @@
+﻿@model IEnumerable<VendasWebMvc.Models.Departamentos>
+
+@{
+    ViewData["Titulo"] = "Index";
+}
+
+<h2>Index</h2>
+<div>
+    @Html.DisplayNameFor(model => model.Id)
+
+    @Html.DisplayNameFor(model => model.Nome)
+</div>
+
+@foreach(var item in Model){
+    <div>
+        @Html.DisplayFor(model => item.Id)
+
+        @Html.DisplayFor(model => item.Nome)
+    
+    </div>
+   
+
+} 

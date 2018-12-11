@@ -18,6 +18,7 @@ namespace VendasWebMvc.Controllers
         public IActionResult Sobre()
         {
             ViewData["Message"] = "Your application description page.";
+            ViewData["Email"] = "gilmar@gmail.com";
 
             return View();
         }
