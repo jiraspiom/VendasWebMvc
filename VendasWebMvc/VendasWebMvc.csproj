@@ -6,10 +6,18 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+   
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.4" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Models\ViewModelo\" />
     <Folder Include="Views\Departamentos\" />
+   
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Data\RazorTagHelper.cs" />
+    <Compile Remove="Data\Middleware.cs" />
   </ItemGroup>
 </Project>

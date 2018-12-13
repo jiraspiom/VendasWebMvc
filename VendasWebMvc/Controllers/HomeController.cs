@@ -17,7 +17,8 @@ namespace VendasWebMvc.Controllers
 
         public IActionResult Sobre()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Pequeno teste de visualização da interface.";
+            ViewData["Nome"] = "Gilmar B";
             ViewData["Email"] = "gilmar@gmail.com";
 
             return View();
