@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VendasWebMvc.Data;
 
 namespace VendasWebMvc.Migrations
 {
     [DbContext(typeof(VendasWebMvcAppContext))]
-    partial class VendasWebMvcAppContextModelSnapshot : ModelSnapshot
+    [Migration("20181215135545_outrasEntidades")]
+    partial class outrasEntidades
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
