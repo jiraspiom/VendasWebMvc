@@ -21,5 +21,6 @@ namespace VendasWebMvc.Data
         {
             throw new NotImplementedException();
         }
+
     }
 }
