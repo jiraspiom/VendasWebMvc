@@ -8,10 +8,10 @@ namespace VendasWebMvc.Models
 
         public int Id { get; set; }
         public DateTime Data { get; set; }
-        public int Quantidade { get; set; }
+        public double Valor { get; set; }
         public StatusVenda Status { get; set; }
 
-        //assossiacao
+        //associação outra classe
         public Vendedor vendedor { get; set; }
 
 
@@ -19,13 +19,13 @@ namespace VendasWebMvc.Models
         {
         }
 
-        public RegistroDeVenda(int id, DateTime data, int quantidade, StatusVenda status)
+        public RegistroDeVenda(int id, DateTime data, int valor, StatusVenda status, Vendedor vendedor)
         {
             Id = id;
             Data = data;
-            this.Quantidade = quantidade;
+            this.Valor = valor;
             this.Status = status;
+            this.vendedor = vendedor;
         }
-
     }
 }

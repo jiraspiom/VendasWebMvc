@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Models\ViewModelo\" />
-    <Folder Include="Views\Departamentos\" />
+    <Folder Include="Views\Departamento\" />
    
     <Folder Include="Data\" />
     <Folder Include="Models\Enumeradores\" />

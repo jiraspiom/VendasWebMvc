@@ -19,7 +19,7 @@ namespace VendasWebMvc.Migrations
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("VendasWebMvc.Models.Departamentos", b =>
+            modelBuilder.Entity("VendasWebMvc.Models.Departamento", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();

@@ -13,9 +13,13 @@ namespace VendasWebMvc.Data
 
         }
 
-        public DbSet<Departamentos> Departamento { get; set; }
+        public DbSet<Departamento> Departamento { get; set; }
         public DbSet<Vendedor> Vendedor { get; set; }
         public DbSet<RegistroDeVenda> RegistroDeVenda { get; set; }
 
+        public static implicit operator VendasWebMvcAppContext(PopularBase v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -12,8 +12,8 @@ namespace VendasWebMvc.Models
         public DateTime DataNascimento { get; set; }
         public double SalarioBase { get; set; }
 
-        //assossiacao
-        public Departamentos Departamento { get; set; }
+        //associação outra class
+        public Departamento Departamento { get; set; }
         public ICollection<RegistroDeVenda> Vendas { get; set; } = new List<RegistroDeVenda>();
 
 
@@ -21,7 +21,7 @@ namespace VendasWebMvc.Models
         {
         }
 
-        public Vendedor(int id, string nome, DateTime dataNascimento, double salarioBase, Departamentos departamento)
+        public Vendedor(int id, string nome, DateTime dataNascimento, double salarioBase, Departamento departamento)
         {
             Id = id;
             Nome = nome;
@@ -43,7 +43,7 @@ namespace VendasWebMvc.Models
         public double TotalVenda(DateTime inicial, DateTime final)
         {
             //filtro por data, e pego a soma das vendas neste periodo
-            return Vendas.Where(sr => sr.Data >= inicial && sr.Data <= final).Sum(sr => sr.Quantidade);
+            return Vendas.Where(sr => sr.Data >= inicial && sr.Data <= final).Sum(sr => sr.Valor);
         }
     }
 }

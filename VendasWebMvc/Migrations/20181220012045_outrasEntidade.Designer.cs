@@ -9,8 +9,8 @@ using VendasWebMvc.Data;
 namespace VendasWebMvc.Migrations
 {
     [DbContext(typeof(VendasWebMvcAppContext))]
-    [Migration("20181215135545_outrasEntidades")]
-    partial class outrasEntidades
+    [Migration("20181220012045_outrasEntidade")]
+    partial class outrasEntidade
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,9 +38,9 @@ namespace VendasWebMvc.Migrations
 
                     b.Property<DateTime>("Data");
 
-                    b.Property<int>("Quantidade");
-
                     b.Property<int>("Status");
+
+                    b.Property<double>("Valor");
 
                     b.Property<int?>("vendedorId");
 

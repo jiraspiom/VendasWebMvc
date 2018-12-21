@@ -4,19 +4,19 @@ using System.Linq;
 
 namespace VendasWebMvc.Models
 {
-    public class Departamentos
+    public class Departamento
     {
         public int Id { get; set; }
         public string Nome { get; set; }
 
-        //assossiacao
+        //associação com outra class
         public ICollection<Vendedor> Vendedores { get; set; } = new List<Vendedor>();
 
-        public Departamentos()
+        public Departamento()
         {
         }
 
-        public Departamentos(int id, string nome)
+        public Departamento(int id, string nome)
         {
             Id = id;
             Nome = nome;

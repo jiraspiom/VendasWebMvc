@@ -17,7 +17,7 @@ namespace VendasWebMvc.Migrations
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("VendasWebMvc.Models.Departamentos", b =>
+            modelBuilder.Entity("VendasWebMvc.Models.Departamento", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -36,9 +36,9 @@ namespace VendasWebMvc.Migrations
 
                     b.Property<DateTime>("Data");
 
-                    b.Property<int>("Quantidade");
-
                     b.Property<int>("Status");
+
+                    b.Property<double>("Valor");
 
                     b.Property<int?>("vendedorId");
 
@@ -78,7 +78,7 @@ namespace VendasWebMvc.Migrations
 
             modelBuilder.Entity("VendasWebMvc.Models.Vendedor", b =>
                 {
-                    b.HasOne("VendasWebMvc.Models.Departamentos", "Departamento")
+                    b.HasOne("VendasWebMvc.Models.Departamento", "Departamento")
                         .WithMany("Vendedores")
                         .HasForeignKey("DepartamentoId");
                 });
