@@ -14,7 +14,7 @@ namespace VendasWebMvc.Models
 
         //associação outra class
         public Departamento Departamento { get; set; }
-        public ICollection<RegistroDeVenda> Vendas { get; set; } = new List<RegistroDeVenda>();
+        public ICollection<RegistroDeVenda> Vendas { get; set; }  = new List<RegistroDeVenda>();
 
 
         public Vendedor() 

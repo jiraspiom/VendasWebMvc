@@ -1,10 +1,61 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
+@model IEnumerable<VendasWebMvc.Models.Vendedor>
+
 @{
     ViewData["Titulo"] = "Index";
 }
 
-<h2>vendedores</h2>
+<h2>@ViewData["Titulo"]</h2>
 
-<p>Index de vendedores</p>
+<table class="table table-striper table-hover">
+    <thead>
+        <tr class="success">
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.SalarioBase)
+            </th>
+            <th>
+
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalarioBase)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Detalhar" asp-route-id="@item.Id">Detalhar</a>
+                    <a asp-action="Deletar" asp-route-id="@item.Id">Deletar</a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+
+
+
+</table>

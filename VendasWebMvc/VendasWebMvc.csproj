@@ -17,6 +17,7 @@
     <Folder Include="Data\" />
     <Folder Include="Models\Enumeradores\" />
     <Folder Include="Views\Vendedor\" />
+    <Folder Include="Servicos\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Data\RazorTagHelper.cs" />

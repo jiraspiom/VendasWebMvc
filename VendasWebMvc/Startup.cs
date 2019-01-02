@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VendasWebMvc.Data;
+using VendasWebMvc.Servicos;
 
 namespace VendasWebMvc
 {
@@ -40,6 +41,7 @@ namespace VendasWebMvc
                     options.UseMySql(Configuration.GetConnectionString("VendasWebMvcContext"), builder => builder.MigrationsAssembly("VendasWebMvc")));
 
             services.AddScoped<PopularBase>();
+            services.AddScoped<VendedorServico>();
         
         }
 
