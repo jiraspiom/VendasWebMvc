@@ -56,7 +56,9 @@ namespace VendasWebMvc.Migrations
 
                     b.Property<DateTime>("DataNascimento");
 
-                    b.Property<int?>("DepartamentoId");
+                    b.Property<int>("DepartamentoId");
+
+                    b.Property<string>("Email");
 
                     b.Property<string>("Nome");
 
@@ -80,7 +82,8 @@ namespace VendasWebMvc.Migrations
                 {
                     b.HasOne("VendasWebMvc.Models.Departamento", "Departamento")
                         .WithMany("Vendedores")
-                        .HasForeignKey("DepartamentoId");
+                        .HasForeignKey("DepartamentoId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

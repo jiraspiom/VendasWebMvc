@@ -9,8 +9,10 @@ namespace VendasWebMvc.Models
 
         public int Id { get; set; }
         public string Nome { get; set; }
+        public string Email { get; set; }
         public DateTime DataNascimento { get; set; }
         public double SalarioBase { get; set; }
+        public int DepartamentoId { get; set; } //estou garantindo que esse id vai ter de existir
 
         //associação outra class
         public Departamento Departamento { get; set; }
@@ -21,10 +23,11 @@ namespace VendasWebMvc.Models
         {
         }
 
-        public Vendedor(int id, string nome, DateTime dataNascimento, double salarioBase, Departamento departamento)
+        public Vendedor(int id, string nome, string email, DateTime dataNascimento, double salarioBase, Departamento departamento)
         {
             Id = id;
             Nome = nome;
+            Email = email;
             DataNascimento = dataNascimento;
             SalarioBase = salarioBase;
             this.Departamento = departamento;
