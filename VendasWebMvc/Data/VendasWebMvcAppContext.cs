@@ -7,6 +7,9 @@ namespace VendasWebMvc.Data
 {
     public class VendasWebMvcAppContext : DbContext
     {
+        public VendasWebMvcAppContext()
+        {
+        }
 
         public VendasWebMvcAppContext(DbContextOptions<VendasWebMvcAppContext> options) : base(options)
         {

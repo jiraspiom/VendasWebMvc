@@ -26,7 +26,7 @@ namespace VendasWebMvc.Servicos
         public void Inserir(Vendedor obj)
         {
             //adicionado provisioriamento para nao gerar aleta ao adicionar vendedor sem departamento.
-            obj.Departamento = _contexto.Departamento.First();
+            //obj.Departamento = _contexto.Departamento.First();
             _contexto.Add(obj);
             _contexto.SaveChanges();
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VendasWebMvc.Models;
+using VendasWebMvc.Models.ViewModelo;
 using VendasWebMvc.Servicos;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,10 +14,12 @@ namespace VendasWebMvc.Controllers
     public class VendedorController : Controller
     {
         private readonly VendedorServico _vendedorServico;
+        private readonly DepartamentoServico _departamentoServico;
 
-        public VendedorController(VendedorServico vendedorServico)
+        public VendedorController(VendedorServico vendedorServico, DepartamentoServico departamentoServico)
         {
             _vendedorServico = vendedorServico;
+            _departamentoServico = departamentoServico;
         }
 
         // GET: /<controller>/
@@ -30,7 +33,10 @@ namespace VendasWebMvc.Controllers
 
         public IActionResult Criar()
         {
-            return View();
+            var departamentos = _departamentoServico.FindAll();
+            var viewModel = new VendedorViewModel { Departamento = departamentos};
+
+            return View(viewModel);
         }
 
         [HttpPost]
