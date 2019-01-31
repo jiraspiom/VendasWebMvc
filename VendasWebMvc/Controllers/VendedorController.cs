@@ -48,6 +48,32 @@ namespace VendasWebMvc.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Deletar( int? id) //o "?" significa que é opcional
+        {
+            //set o id esta preenchido
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var objeto = _vendedorServico.EncontrarPorID(id.Value);
+
+            //se foi encontrando o objeto
+            if (objeto == null)
+            {
+                return NotFound();
+            }
+
+            return View(objeto);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Deletar(int id)
+        {
+            _vendedorServico.Remover(id);
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }
