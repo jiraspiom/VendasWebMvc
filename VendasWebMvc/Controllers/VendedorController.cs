@@ -75,5 +75,24 @@ namespace VendasWebMvc.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Detalhar(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var objeto = _vendedorServico.EncontrarPorID(id.Value);
+            if (objeto == null)
+            {
+                return NotFound();
+            }
+
+            return View(objeto);
+
+        }
+
+
     }
 }

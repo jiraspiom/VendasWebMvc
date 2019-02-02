@@ -1,12 +1,10 @@
 ﻿@model VendasWebMvc.Models.Vendedor
 
 @{
-    ViewData["Titulo"] = "Deletar";
+    ViewData["Titulo"] = "Detalhar";
 }
 
 <h2>@ViewData["Titulo"]</h2>
-
-<h2>Tem certeza que quer deletar?</h2>
 
 <div>
     <h4>Vendedor</h4>
@@ -41,12 +39,19 @@
             @Html.DisplayFor(model => model.SalarioBase)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Departamento.Nome)
+        </dd>
+
+
     </dl>
 
-    <form asp-action="Deletar">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Deletar" class="btn btn-danger" />
+    <div>
+        <a asp-action="Editar" asp-route-id="@Model.Id" class="btn-default">Editar</a>
         <a asp-action="Index">Voltar para lista</a>
-    </form>
 
+    </div>
 </div>

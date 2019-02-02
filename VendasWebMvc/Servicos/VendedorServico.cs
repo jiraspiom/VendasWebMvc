@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using VendasWebMvc.Data;
 using VendasWebMvc.Models;
 
@@ -33,7 +34,11 @@ namespace VendasWebMvc.Servicos
 
         public Vendedor EncontrarPorID(int id)
         {
-            return _contexto.Vendedor.FirstOrDefault(objeto => objeto.Id == id);
+            //assim nao trazia o departamento entao deve incluir o EntityFrameworkCore no name space para usar o Include
+            //return _contexto.Vendedor.FirstOrDefault(objeto => objeto.Id == id);
+
+            //fazendo inner join com tabela departamento
+            return _contexto.Vendedor.Include(objeto => objeto.Departamento).FirstOrDefault(objeto => objeto.Id == id);
         }
 
         public void Remover(int id)
