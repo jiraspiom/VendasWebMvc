@@ -18,9 +18,13 @@
     <Folder Include="Models\Enumeradores\" />
     <Folder Include="Views\Vendedor\" />
     <Folder Include="Servicos\" />
+    <Folder Include="Servicos\Excecao\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Data\RazorTagHelper.cs" />
     <Compile Remove="Data\Middleware.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Vendedor\Editar.cshtml" />
   </ItemGroup>
 </Project>

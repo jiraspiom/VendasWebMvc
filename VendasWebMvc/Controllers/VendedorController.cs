@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using VendasWebMvc.Models;
 using VendasWebMvc.Models.ViewModelo;
 using VendasWebMvc.Servicos;
+using VendasWebMvc.Servicos.Excecao;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -93,6 +94,51 @@ namespace VendasWebMvc.Controllers
 
         }
 
+        public IActionResult Editar(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var objeto = _vendedorServico.EncontrarPorID(id.Value);
+
+            if (objeto == null)
+            {
+                return NotFound();
+            }
+
+            List<Departamento> departamentos = _departamentoServico.FindAll();
+            VendedorViewModel viewModelo = new VendedorViewModel { Vendedor = objeto };
+            return View(viewModelo);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Editar(int id, Vendedor vendedor)
+        {
+            if ( id != vendedor.Id)
+            {
+                return BadRequest();
+            }
+
+            try
+            {
+
+                _vendedorServico.Update(vendedor);
+                return AcceptedAtAction(nameof(Index));
+
+            }
+            catch(NaoEncontradoExcecao)
+            {
+                return NotFound();
+            }
+            catch (DbCorrenteExcecao)
+            {
+                return BadRequest();
+            }
+
+        }
 
     }
 }

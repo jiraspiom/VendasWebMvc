@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using VendasWebMvc.Data;
 using VendasWebMvc.Models;
+using VendasWebMvc.Servicos.Excecao;
 
 namespace VendasWebMvc.Servicos
 {
@@ -51,6 +52,29 @@ namespace VendasWebMvc.Servicos
             _contexto.SaveChanges();
         }
 
+
+        public void Update(Vendedor obj)
+        {
+            if(!_contexto.Vendedor.Any(x => x.Id == obj.Id))
+            {
+                throw new NaoEncontradoExcecao("Id näo encontrado");
+            }
+
+
+            //para evitar um possivel erro de concorrencia
+            try
+            {
+                _contexto.Update(obj);
+                _contexto.SaveChanges();
+            }
+            //intercepto a execao a nivel de dado disparo uma execao a nivel de servico
+            catch (DbUpdateConcurrencyException  ex)
+            {
+                //excecao a nivel de servico
+                throw new DbCorrenteExcecao(ex.Message);
+
+            }
+        }
 
     }
 }
